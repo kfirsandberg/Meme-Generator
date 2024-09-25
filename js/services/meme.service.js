@@ -4,8 +4,10 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [{
         txt: '',
-        size: 20,
+        size: 50,
         color: 'white',
+        font : 'impact',
+        alignment : 'center',
         posY : 20
     }]
 }
@@ -19,6 +21,19 @@ function setImgId(id) {
 function setLineText(txt) {
     const line = getCrnLine()
     line.txt = txt
+}
+
+function setLineFont(font) {
+    const line = getCrnLine()
+    line.font = font
+}
+function moveText(posY) {
+    const line = getCrnLine()
+    line.posY += posY
+}
+function setAlignment(alignment) {
+    const line = getCrnLine()
+    line.alignment = alignment
 }
 function setLineColor(color) {
     const line = getCrnLine()
@@ -36,6 +51,7 @@ function addLine(){
     gMeme.lines.push(newLine)
 }
 function removeLine(){
+    gCurrLineIdx--
     gMeme.lines.pop()
 }
 
@@ -47,15 +63,17 @@ function getLines(){
     return gMeme.lines
 }
 function switchLine(){
-    console.log(gCurrLineIdx)
+    if (gCurrLineIdx===0) return
     if (gCurrLineIdx< gMeme.lines.length) gCurrLineIdx++
     else gCurrLineIdx ===0
 }
 function _createLine(){
     return {
         txt: '',
-        size: 20,
+        size: 60    ,
         color: 'white',
+        font : 'impact',
+        alignment : 'center',
         posY : 20
     }
 }

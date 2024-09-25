@@ -1,0 +1,20 @@
+@font-face {
+    font-family: impact;
+    src: url(/style/fonts/impact/impact.ttf)
+}
+
+@font-face {
+    font-family: comic-sans;
+    src: url(/style/fonts/comic-sans-ms-font-family/COMIC.TTF)
+}
+
+@font-face {
+    font-family: anton;
+    src: url(/style/fonts/Anton/Anton-Regular.ttf)
+}
+
+@font-face {
+    font-family: roboto; 
+    src: url(/style/fonts/Roboto/Roboto-Bold.ttf)
+}
+

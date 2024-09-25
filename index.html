@@ -33,8 +33,19 @@
                 <button onclick="onAddLine()">Add Line</button>
                 <button onclick="onRemoveLine()">Remove Line</button>
                 <button onclick="onDownload()">Download</button>
-                <!-- <button onclick="onChange(10)">+</button>
-                <button onclick="onChange(-10)">-</button> -->
+                <label for="chose-font">chose your font here:</label>
+                <select name="fonts"  onchange="onChangeFont(value)">
+                    <option value="impact">Impact</option>
+                    <option value="comic-sans">comic-sans</option>
+                    <option value="anton">anton</option>
+                    <option value="roboto   ">roboto</option>
+                </select>
+                <button onclick="onUp()">up</button>
+                <button onclick="onDown()">down</button>
+                <button onclick="onLeftAlignment()">Alignment Left</button>
+                <button onclick="onRightAlignment()">Alignment Right</button>
+                <button onclick="onCenterAlignment()">Alignment Center</button>
+
             </div>
         </section>
         <section class="gallery-container">

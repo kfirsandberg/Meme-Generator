@@ -15,6 +15,11 @@ function onChangeText() {
     setLineText(txt)
     renderMeme()
 }
+function onChangeFont(font) {
+    setLineFont(font)
+    renderMeme()
+
+}
 function onChangeColor() {
     const color = document.getElementById('color').value
     setLineColor(color)
@@ -28,16 +33,34 @@ function onAddLine() {
     addLine()
     renderMeme()
 }
-
 function onRemoveLine() {
     removeLine()
     renderMeme()
 }
-
 function onSwitchLine() {
     switchLine()
 }
+function onRightAlignment() {
+    setAlignment('right')
+    renderMeme()
+}
+function onLeftAlignment() {
+    setAlignment('left')
+    renderMeme()
+}
+function onCenterAlignment() {
+    setAlignment('center')
+    renderMeme()
+}
+function onUp(){
+    moveText(-10)
+    renderMeme()
+}
 
+function onDown(){
+    moveText(10)
+    renderMeme()
+}
 function renderMeme() {
     const meme = getMeme()
     const memeImg = getImg(meme.selectedImgId)
@@ -55,12 +78,12 @@ function renderMeme() {
 function renderLines() {
     const lines = getLines()
     lines.forEach((line) => {
-        gCtx.font = `${line.size}px Arial`
+        gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color
-        gCtx.textAlign = 'center'
+        gCtx.textAlign = line.alignment
         gCtx.textBaseline = 'top'
+        gCtx.strokeStyle = '#000000'
         gCtx.fillText(line.txt, (gCtx.canvas.width / 2), line.posY)
-
     })
 }
 
