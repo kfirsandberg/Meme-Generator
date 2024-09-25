@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/style/main.css" />
+	<title>Meme Generator</title>
+</head>
+<body onload="onInit()">
+	<main>
+        <header class="main-header">
+            <div class="logo">logo</div>
+            <nav class="main-nev">
+                <li>
+                    <a href="#" class="galley" onclick="onPageClick()">Galley</a>
+                    <a href="#" class="memes" onclick="onPageClick()">Memes</a>
+                    <a href="#" class="about" onclick="onPageClick()">About</a>
+                </li>
+            </nav>  
+        </header>
+		<section class="meme-editor">
+            <canvas id="canvas" width="550" height="540"></canvas>
+            <div class="tools">
+                <input type="text">
+                <input type="color" id="color" name="color" value="#000000" oninput="handleColorChange()" /> <br />
+            </div>
+		</section>
+        <section class="Meme-gallery">
+            <img src="/img/meme-imgs (square)/1.jpg" alt="" onclick="onClickMeme()">
+            <img src="/img/meme-imgs (square)/2.jpg" alt="" onclick="onClickMeme()">
+
+        </section>
+	</main>
+	<script src="/js/mains.js"></script>
+</body>
+
+</html>
