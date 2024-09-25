@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="/style/main.css" />
-	<title>Meme Generator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/main.css" />
+    <title>Meme Generator</title>
 </head>
+
 <body onload="onInit()">
-	<main>
+    <main>
         <header class="main-header">
             <div class="logo">logo</div>
             <nav class="main-nev">
@@ -16,22 +18,37 @@
                     <a href="#" class="memes" onclick="onPageClick()">Memes</a>
                     <a href="#" class="about" onclick="onPageClick()">About</a>
                 </li>
-            </nav>  
+            </nav>
         </header>
-		<section class="meme-editor">
-            <canvas id="canvas" width="550" height="540"></canvas>
+        <section class="meme-editor">
+            <canvas id="canvas" width="0" height="0"></canvas>
             <div class="tools">
-                <input type="text">
-                <input type="color" id="color" name="color" value="#000000" oninput="handleColorChange()" /> <br />
+                <input type="text" id="text" oninput="onChangeText()" value="">
+                <button>
+                    <input type="color" id="color" value="#000000" oninput="onChangeColor()" /> <br />
+                </button>
+                <button onclick="onChangeFontSize(10)">a+</button>
+                <button onclick="onChangeFontSize(-10)">a-</button>
+                <button onclick="onSwitchLine()">Switch Line</button>
+                <button onclick="onAddLine()">Add Line</button>
+                <button onclick="onRemoveLine()">Remove Line</button>
+                <button onclick="onDownload()">Download</button>
+                <!-- <button onclick="onChange(10)">+</button>
+                <button onclick="onChange(-10)">-</button> -->
             </div>
-		</section>
-        <section class="Meme-gallery">
-            <img src="/img/meme-imgs (square)/1.jpg" alt="" onclick="onClickMeme()">
-            <img src="/img/meme-imgs (square)/2.jpg" alt="" onclick="onClickMeme()">
+        </section>
+        <section class="gallery-container">
+            <img src="/img/meme-imgs (square)/1.jpg" alt="" style="width: 40%;" onclick="onClickImg(1)">
+            <img src="/img/meme-imgs (square)/2.jpg" alt="" style="width: 40%;" onclick="onClickImg(2)">
 
         </section>
-	</main>
-	<script src="/js/mains.js"></script>
+    </main>
+    <script src="/js/mains.js"></script>
+    <script src="/js/controller/gallery.controller.js"></script>
+    <script src="/js/controller/meme.controller.js"></script>
+    <script src="/js/services/gallery.service.js"></script>
+    <script src="/js/services/meme.service.js"></script>
+
 </body>
 
 </html>
