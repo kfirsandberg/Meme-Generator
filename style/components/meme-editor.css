@@ -1,39 +1,39 @@
-.meme-editor{
+.meme-editor {
     display: grid;
-    grid-template-columns: 1fr  1fr 1fr  1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 20px;
     gap: 60px;
 }
 
-canvas{
+canvas {
     grid-column: 2/3;
 }
 
-.tools{
+.tools {
     grid-column: 3/4;
     display: grid;
     grid-template-rows: repeat(5 1fr);
     align-content: center;
     border: 2px solid grey;
     padding: 20px;
+    width: 500px;
 }
-.search-box{
+
+.search-box {
     grid-row: 1/2;
     width: 50%;
-    
 }
 
-.tools-line-option{
-grid-row: 2/3;
-width: 100%;
+.tools-line-option {
+    grid-row: 2/3;
+    width: 100%;
 }
 
-.tools-text-option{
+.tools-text-option {
     grid-row: 3/4;
 }
 
-.tools-font-colors{
+.tools-font-colors {
     grid-row: 4/5;
 
 }
-
