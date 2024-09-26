@@ -17,4 +17,8 @@
     font-family: roboto; 
     src: url(/style/fonts/Roboto/Roboto-Bold.ttf)
 }
+@font-face {
+    font-family: montserrat; 
+    src: url(/style/fonts/Montserrat/Montserrat-VariableFont_wght.ttf)
+}
 

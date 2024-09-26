@@ -9,55 +9,83 @@
 </head>
 
 <body onload="onInit()">
-    <main>
-        <header class="main-header">
-            <div class="logo">logo</div>
-            <nav class="main-nev">
+    <main class="main-layout">
+        <header class="main-header flex space-between ">
+            <img src="style/LOGO/LOGO.png"alt="" class="logo">
+            <nav class="main-nev flex space-between clean-list center">
                 <li>
-                    <a href="#" class="galley" onclick="onPageClick()">Galley</a>
+                    <a href="#" class="gallery" onclick="onPageClick()">gallery</a>
                     <a href="#" class="memes" onclick="onPageClick()">Memes</a>
                     <a href="#" class="about" onclick="onPageClick()">About</a>
                 </li>
             </nav>
         </header>
-        <section class="meme-editor">
+        <section class="meme-editor" >
+
             <canvas id="canvas" width="0" height="0"></canvas>
-            <div class="tools">
-                <input type="text" id="text" oninput="onChangeText()" value="">
-                <button>
-                    <input type="color" id="color" value="#000000" oninput="onChangeColor()" /> <br />
-                </button>
-                <button onclick="onChangeFontSize(10)">a+</button>
-                <button onclick="onChangeFontSize(-10)">a-</button>
-                <button onclick="onSwitchLine()">Switch Line</button>
-                <button onclick="onAddLine()">Add Line</button>
-                <button onclick="onRemoveLine()">Remove Line</button>
-                <button onclick="onDownload()">Download</button>
-                <label for="chose-font">chose your font here:</label>
-                <select name="fonts"  onchange="onChangeFont(value)">
-                    <option value="impact">Impact</option>
-                    <option value="comic-sans">comic-sans</option>
-                    <option value="anton">anton</option>
-                    <option value="roboto   ">roboto</option>
-                </select>
-                <button onclick="onUp()">up</button>
-                <button onclick="onDown()">down</button>
-                <button onclick="onLeftAlignment()">Alignment Left</button>
-                <button onclick="onRightAlignment()">Alignment Right</button>
-                <button onclick="onCenterAlignment()">Alignment Center</button>
+            <section class="tools">
+                <input class="search-box" type="text" id="text" oninput="onChangeText()" value="">
+                <div class="tools-line-option">
+                    <button onclick="onSwitchLine()">Switch Line</button>
+                    <button onclick="onAddLine()">Add Line</button>
+                    <button onclick="onRemoveLine()">Remove Line</button>
+                    <button onclick="onUp()">up</button>
+                    <button onclick="onDown()">down</button>    
+                </div>
+                <div class="tools-text-option">
+                    <button onclick="onChangeFontSize(10)">a+</button>
+                    <button onclick="onChangeFontSize(-10)">a-</button>
+                    <button onclick="onLeftAlignment()">Alignment Left</button>
+                    <button onclick="onRightAlignment()">Alignment Right</button>
+                    <button onclick="onCenterAlignment()">Alignment Center</button>
+                </div>
+                <div class="tools-font-colors">
+                    <button>Text Color
+                        <input type="color" id="color" value="#000000" oninput="onChangeColor()" /> <br />
+                    </button>
+                    <button>Stroke Color
+                        <input type="color" id="stroke-Color" value="#000000" oninput="onStrokeColor()" /> <br />
+                    </button>
+                    <label for="chose-font">chose your font here:</label>
+                    <select name="fonts" onchange="onChangeFont(value)">
+                        <option value="impact">Impact</option>
+                        <option value="comic-sans">comic-sans</option>
+                        <option value="anton">anton</option>
+                        <option value="roboto   ">roboto</option>
+                    </select>
+                </div>
+                <div class="tools-share">
+                    <button onclick="onDownload()">Download</button>
+                </div>
 
-            </div>
+            </section>
         </section>
-        <section class="gallery-container">
-            <img src="/img/meme-imgs (square)/1.jpg" alt="" style="width: 40%;" onclick="onClickImg(1)">
-            <img src="/img/meme-imgs (square)/2.jpg" alt="" style="width: 40%;" onclick="onClickImg(2)">
+        <main class="gallery-search-filter" style="display: none;">
+            <section class="search-box flex space-between clean-list">
+                <input class="filter-search" type="search" name="search" id="">
+                <section>
+                    <button class="filter-btn">funny</button>
+                    <button class="filter-btn">comics</button>
+                    <button class="filter-btn">dogs</button>
+                    <button class="filter-btn">drinks</button>
+                    <button class="filter-btn">books</button>
+                    <button class="filter-btn">more...</button>
 
-        </section>
+                </section>
+            </section>
+            <section class="gallery-container ">
+            </section>
+        </main>
+        <footer class="footer">
+            <img src="style/LOGO/LOGO.png"alt="" class="footer-logo">
+            <div class="rights">all rights reserved 2019</div>
+        </footer>
+        
     </main>
     <script src="/js/mains.js"></script>
+    <script src="/js/services/gallery.service.js"></script>
     <script src="/js/controller/gallery.controller.js"></script>
     <script src="/js/controller/meme.controller.js"></script>
-    <script src="/js/services/gallery.service.js"></script>
     <script src="/js/services/meme.service.js"></script>
 
 </body>

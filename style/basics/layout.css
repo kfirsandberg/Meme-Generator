@@ -1,0 +1,9 @@
+.main-layout{
+    margin: auto;
+}
+
+.main-header{
+    height: 69px;
+    background-color: var(--clr-main-color);
+}
+

@@ -1,0 +1,19 @@
+.logo{
+    margin: 10px;
+}
+.main-nev{
+    margin: 10px;
+}
+a{
+    text-decoration:none;
+    color: aliceblue;
+    padding: 2em;
+    padding-bottom: 1em;
+    font-size: 19px;
+    font-family: montserrat ;
+}
+
+.gallery{
+    border-bottom: 5px solid black;
+    color: black;
+}

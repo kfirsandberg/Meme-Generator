@@ -1,97 +1,73 @@
 'use strict'
 let gCtx
 let memeImg
+let gLastPos
+let gIsMove
+
+const canvas = document.getElementById('canvas')
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 // var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+
 function onInit() {
-    const canvas = document.getElementById('canvas')
     gCtx = canvas.getContext('2d')
-}
-function onClickImg(imgId) {
-    setImgId(imgId)
+    renderGallery()
     renderMeme()
+    addListeners()
 }
-function onChangeText() {
-    const txt = document.getElementById('text').value
-    setLineText(txt)
-    renderMeme()
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
 }
-function onChangeFont(font) {
-    setLineFont(font)
-    renderMeme()
-
-}
-function onChangeColor() {
-    const color = document.getElementById('color').value
-    setLineColor(color)
-    renderMeme()
-}
-function onChangeFontSize(value) {
-    setLineFontSize(value)
-    renderMeme()
-}
-function onAddLine() {
-    addLine()
-    renderMeme()
-}
-function onRemoveLine() {
-    removeLine()
-    renderMeme()
-}
-function onSwitchLine() {
-    switchLine()
-}
-function onRightAlignment() {
-    setAlignment('right')
-    renderMeme()
-}
-function onLeftAlignment() {
-    setAlignment('left')
-    renderMeme()
-}
-function onCenterAlignment() {
-    setAlignment('center')
-    renderMeme()
-}
-function onUp(){
-    moveText(-10)
-    renderMeme()
+function addMouseListeners() {
+    canvas.addEventListener('mousedown', onDown)
+    canvas.addEventListener('mousemove', onMove)
+    canvas.addEventListener('mouseup', onUp)
 }
 
-function onDown(){
-    moveText(10)
-    renderMeme()
+function addTouchListeners() {
+    canvas.addEventListener('touchstart', onDown)
+    canvas.addEventListener('touchmove', onMove)
+    canvas.addEventListener('touchend', onUp)
 }
-function renderMeme() {
-    const meme = getMeme()
-    const memeImg = getImg(meme.selectedImgId)
-    let elImg = new Image()
-    elImg.src = memeImg.url
-    const line = getCrnLine()
-    elImg.onload = () => {
-        gCtx.canvas.width = elImg.naturalWidth
-        gCtx.canvas.height = elImg.naturalHeight
-        gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
-        renderLines()
+function onDown(ev) {
+    const pos = getEvPos(ev)
+    const boxPos = canvas.getBoundingClientRect()
+    document.body.style.cursor = 'grabbing'
+    gIsMove = isBox(pos, boxPos)
+}
+
+function isBox(pos,boxPos){
+    if (pos.x >= boxPos.x && pos.x <= boxPos.x + boxPos.width && pos.y >= boxPos.y && pos.y <= boxPos.y + boxPos.height) {
+        return true
     }
+    else return false
 }
 
-function renderLines() {
-    const lines = getLines()
-    lines.forEach((line) => {
-        gCtx.font = `${line.size}px ${line.font}`
-        gCtx.fillStyle = line.color
-        gCtx.textAlign = line.alignment
-        gCtx.textBaseline = 'top'
-        gCtx.strokeStyle = '#000000'
-        gCtx.fillText(line.txt, (gCtx.canvas.width / 2), line.posY)
-    })
+function onMove(ev) {
+    const pos = getEvPos(ev)
+    if (gIsMove)onMoveMeme(pos)
+    else return
 }
 
-function onDownload() {
-    const canvas = document.getElementById('canvas')
-    const image = canvas.toDataURL('image/png')
-    const link = document.createElement('a')
-    link.href = image
-    link.download = 'canvas-image.png'
-    link.click()
+function onUp() {
+    gIsMove = false
+    document.body.style.cursor = ''
 }
+
+
+function getEvPos(ev) {
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY,
+    }
+    if (TOUCH_EVS.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.clientX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.clientY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
+    return pos
+}
+

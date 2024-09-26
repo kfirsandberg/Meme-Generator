@@ -1,0 +1,16 @@
+.search-box{
+    height: 110px;
+    padding: 10px;
+    align-items: center;
+}
+
+.filter-search{
+    height: 2em;
+    border: solid white ;
+    border-bottom: 2px solid black;
+}
+.filter-btn{
+    border: solid white ;
+    background-color: transparent;
+
+}

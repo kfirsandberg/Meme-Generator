@@ -1,1 +1,10 @@
 @import url('/style/typography.css');   
+@import url('/style/basics/layout.css');   
+@import url('/style/basics/helpers.css');   
+@import url('/style/basics/base.css');   
+@import url('/style/vars.css');   
+@import url('/style/components/main-header.css');   
+@import url('/style/components/gallery.css');   
+@import url('/style/components/search-box.css');   
+@import url('/style/components/footer.css');   
+@import url('/style/components/meme-editor.css');   
