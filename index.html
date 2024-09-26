@@ -5,82 +5,91 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/main.css" />
+    <link rel="preload" type="font/TTF" as="font" href="style/fonts/comic-sans-ms-font-family/COMIC.TTF"
+        crossorigin="anonymous">
+    <link rel="preload" as="font" href="style/fonts/Anton/Anton-Regular.ttf" crossorigin="anonymous">
+    <link rel="preload" as="font" href="./style/fonts/impact/impact.ttf" crossorigin="anonymous">
+    <link rel="preload" as="font" href="./style/fonts/Roboto/Roboto-Bold.ttf" crossorigin="anonymous">
     <title>Meme Generator</title>
 </head>
 
-<body onload="onInit()">
-    <main class="main-layout">
-        <header class="main-header flex space-between ">
-            <img src="style/LOGO/LOGO.png"alt="" class="logo">
+<body class="main-layout" onload="onInit()">
+    <main class="full main-header main-layout ">
+        <header class="main-header flex space-between">
+            <img src="style/LOGO/LOGO.png" alt="" class="   ">
             <nav class="main-nev flex space-between clean-list center">
                 <li>
-                    <a href="#" class="gallery" onclick="onPageClick()">gallery</a>
-                    <a href="#" class="memes" onclick="onPageClick()">Memes</a>
+                    <a href="#" class="gallery" onclick="onGalleryCLick()">Gallery</a>
                     <a href="#" class="about" onclick="onPageClick()">About</a>
                 </li>
             </nav>
         </header>
-        <section class="meme-editor" >
-
+        <section class="meme-editor full" style="display: none;">
             <canvas id="canvas" width="0" height="0"></canvas>
             <section class="tools">
-                <input class="search-box" type="text" id="text" oninput="onChangeText()" value="">
-                <div class="tools-line-option">
-                    <button onclick="onSwitchLine()">Switch Line</button>
-                    <button onclick="onAddLine()">Add Line</button>
-                    <button onclick="onRemoveLine()">Remove Line</button>
-                    <button onclick="onUp()">up</button>
-                    <button onclick="onDown()">down</button>    
+                <input class="search-box flexs" type="text" id="text" oninput="onChangeText()" value="">
+                <div class="tools-line-option flex">
+                    <button onclick="onSwitchLine()"><img
+                            src="style/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button onclick="onAddLine()"><img src="style/ICONS/add.png" alt=""></button>
+                    <button onclick="onRemoveLine()"><img src="style/ICONS/trash.png" alt=""></button>
                 </div>
-                <div class="tools-text-option">
-                    <button onclick="onChangeFontSize(10)">a+</button>
-                    <button onclick="onChangeFontSize(-10)">a-</button>
-                    <button onclick="onLeftAlignment()">Alignment Left</button>
-                    <button onclick="onRightAlignment()">Alignment Right</button>
-                    <button onclick="onCenterAlignment()">Alignment Center</button>
+                <div class="tools-text-option flex">
+                    <button onclick="onChangeFontSize(10)"><img src="style/ICONS/increase font - icon.png"
+                            alt=""></button>
+                    <button onclick="onChangeFontSize(-10)"><img src="style/ICONS/decrease font - icon.png"
+                            alt=""></button>
+                    <button onclick="onLeftAlignment()"><img src="style/ICONS/align-to-left.png" alt=""></button>
+                    <button onclick="onRightAlignment()"><img src="style/ICONS/align-to-right.png" alt=""></button>
+                    <button onclick="onCenterAlignment()"><img src="style/ICONS/center-text-alignment.png"
+                            alt=""></button>
                 </div>
-                <div class="tools-font-colors">
-                    <button>Text Color
-                        <input type="color" id="color" value="#000000" oninput="onChangeColor()" /> <br />
-                    </button>
-                    <button>Stroke Color
-                        <input type="color" id="stroke-Color" value="#000000" oninput="onStrokeColor()" /> <br />
-                    </button>
-                    <label for="chose-font">chose your font here:</label>
+                <div class="tools-font-colors flex">
                     <select name="fonts" onchange="onChangeFont(value)">
                         <option value="impact">Impact</option>
                         <option value="comic-sans">comic-sans</option>
                         <option value="anton">anton</option>
                         <option value="roboto   ">roboto</option>
                     </select>
+                    <button class="text-color" onclick="onClickColor()">
+                        <input type="color" id="color" value="#000000" oninput="onChangeColor()" /><img
+                            src="style/ICONS/paint-board-and-brush.png" alt=""><br />
+                    </button>
+                    <button class="stroke-color" onclick="onClickStroke()">
+                        <input type="color" id="stroke-Color" value="#000000" oninput="onStrokeColor()" /><img
+                            src="style/ICONS/text stroke.png" alt=""><br />
+                    </button>
                 </div>
-                <div class="tools-share">
+                <div class="tools-share flex">
                     <button onclick="onDownload()">Download</button>
                 </div>
 
             </section>
         </section>
-        <main class="gallery-search-filter" style="display: none;">
-            <section class="search-box flex space-between clean-list">
-                <input class="filter-search" type="search" name="search" id="">
-                <section>
-                    <button class="filter-btn">funny</button>
-                    <button class="filter-btn">comics</button>
-                    <button class="filter-btn">dogs</button>
-                    <button class="filter-btn">drinks</button>
-                    <button class="filter-btn">books</button>
-                    <button class="filter-btn">more...</button>
-
+        <main class="gallery-container full">
+            <main class="gallery full ">
+                <section class="search-box flex space-between clean-list">
+                    <input class="filter-search" type="search" name="search" id="">
+                    <section>
+                        <button class="filter-btn">funny</button>
+                        <button class="filter-btn">comics</button>
+                        <button class="filter-btn">dogs</button>
+                        <button class="filter-btn">drinks</button>
+                        <button class="filter-btn">books</button>
+                        <button class="filter-btn">more...</button>
+                    </section>
                 </section>
-            </section>
-            <section class="gallery-container ">
-            </section>
+                <section class="gallery-container ">
+                </section>
+            </main>
         </main>
-        <footer class="footer">
-            <img src="style/LOGO/LOGO.png"alt="" class="footer-logo">
+        <footer class="footer full">
+            <img src="style/LOGO/LOGO.png" alt="" class="footer-logo">
             <div class="rights">all rights reserved 2019</div>
         </footer>
-        
+        <dialog class="action-dialog">
+            <pre>Please add line first!</pre>
+        </dialog>
     </main>
     <script src="./js/mains.js"></script>
     <script src="./js/services/gallery.service.js"></script>

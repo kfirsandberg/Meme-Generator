@@ -5,7 +5,8 @@ footer{
     flex-direction: column;
     display: flex;
     justify-content: center;
-    background-color: var(--clr-main-color);    
+    background-color: var(--clr-main-color);   
+    padding-top: 10px; 
 }
 .footer-logo{
     width: 20%;
@@ -14,3 +15,4 @@ footer{
     margin: 20px;
     font-family: montserrat;
 }
+
