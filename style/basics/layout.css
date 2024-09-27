@@ -4,10 +4,6 @@
     margin: auto;
 }
 
-.main-header{
-    height: 69px;
-    background-color: var(--clr-main-color);
-}
 .main-layout>*.full  {
     grid-column: 1 / -1;
 }

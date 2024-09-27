@@ -1,7 +1,7 @@
 'use strict'
 function renderGallery(){
     var imgs = getImgs()
-    let elGallery = document.querySelector('.gallery-container')
+    let elGallery = document.querySelector('.gallery')
     let strHtmls = gImgs.map((img) => {
         return `<img src="${img.url}" alt=""onclick="onClickImg(${img.id})">`
     })

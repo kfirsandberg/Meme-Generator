@@ -58,10 +58,13 @@ function getEvPos(ev) {
 }
 
 function onGalleryCLick() {
-    const gallery = document.querySelector('.gallery-container')
+    const gallery = document.querySelector('.gallery')
     gallery.style.display = 'grid'
     const editor = document.querySelector('.meme-editor')
     editor.style.display = 'none'
+    const searchbox = document.querySelector('.search-box')
+    searchbox.style.display = 'flex'
+    
 }
 
 function showModal() {

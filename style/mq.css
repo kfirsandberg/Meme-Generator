@@ -1,0 +1,88 @@
+ /* mobile only */
+ @media (max-width: 640px) {
+     .gallery {
+         grid-template-columns: 1fr;
+     }
+ }
+
+ /* small */
+ @media (min-width: 640px) {
+     .gallery {
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .search-box {
+         height: 70px;
+     }
+
+     .filter-btn {
+         font-size: 15 px;
+         width: 50px;
+     }
+
+     .main-header {
+         grid-column: 1/-1;
+     }
+
+     .search-tags {
+         width: 100%;
+         display: flex;
+         justify-content: space-evenly;
+     }
+
+     .filter-search {
+         height: 50%;
+     }
+
+ }
+
+ /* medium */
+ @media (min-width: 920px) {
+     .gallery {
+         grid-template-columns: repeat(3, 1fr);
+     }
+
+     .search-box {
+         height: 90px;
+         flex-direction: row;
+     }
+
+     .filter-btn {
+         font-size: 20px;
+         width: 100px;
+     }
+     .meme-editor {
+        grid-template-columns: 1fr 1fr;
+     }
+     canvas{
+        grid-column: 1/2;
+     }
+     .tools{
+        grid-column: 2/3;
+     }
+
+   
+ }
+
+ /* large */
+ @media (min-width: 1750px) {
+     .gallery {
+         grid-template-columns: repeat(4, 1fr);
+     }
+     .main-layout {
+         grid-template-columns: minmax(20px, 1fr) minmax(var(--break-l), 1fr) minmax(20px, 1fr);
+     }
+     .search-box {
+         flex-direction: row;
+     }
+     .meme-editor {
+        grid-template-columns: repeat(4, 1fr);
+     }
+     canvas{
+        grid-column: 2/3;
+     }
+     .tools{
+        grid-column: 3/4;
+     }
+
+ }

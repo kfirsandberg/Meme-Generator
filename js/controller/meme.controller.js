@@ -3,8 +3,10 @@ let boxY
 let boxWidth
 let boxHeight
 function onClickImg(imgId) {
-    const gallery = document.querySelector('.gallery-container')
+    const gallery = document.querySelector('.gallery')
     gallery.style.display = 'none'
+    const searchBox = document.querySelector('.search-box')
+    searchBox.style.display = 'none'
     const editor = document.querySelector('.meme-editor')
     editor.style.display = 'grid'
     setImgId(imgId)
@@ -22,7 +24,7 @@ function onChangeFont(font) {
     renderMeme()
 }
 
-function onClickColor() {
+function onChangeColor() {
     const color = document.getElementById('color').value
     setLineColor(color)
     renderMeme()
@@ -99,21 +101,12 @@ function renderLines() {
         gCtx.strokeStyle = line.stroke
         gCtx.lineWidth = 5
         if (line.isInBox) {
-            const textWidth = gCtx.measureText(line.txt).width
-            const textHeight = line.size
-            const boxPadding = 10
-            line.boxPos = {
-                x: line.posX - (textWidth / 2) - boxPadding,
-                y: line.posY - boxPadding,
-                width: textWidth + boxPadding * 2,
-                height: line.size + boxPadding * 2
-            };
-            const { x, y, width, height } = line.boxPos
-            gCtx.strokeRect(x, y, width, height)
+            const boxPox = getBoxPos()
+            console.log(boxPox)
+            gCtx.strokeRect(boxPox.x, boxPox.y, boxPox.width, boxPox.height)
         }
         else {
             gCtx.strokeRect(0, 0, 0, 0)
-
         }
         gCtx.strokeText(line.txt, line.posX, line.posY)
         gCtx.fillText(line.txt, line.posX, line.posY)

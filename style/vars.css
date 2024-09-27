@@ -1,4 +1,8 @@
 :root{
     --clr-main-color: RGBA(255, 127, 0, 1);
     --clr-main-gallery: RGBA(227, 227, 227, 1);
+
+    --break-l: 1700px;
+    --break-m: 900px;
+    --break-s: 600px;
 }

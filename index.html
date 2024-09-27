@@ -14,12 +14,16 @@
 </head>
 
 <body class="main-layout" onload="onInit()">
-    <main class="full main-header main-layout ">
+    <main class="full header-container main-layout ">
         <header class="main-header flex space-between">
-            <img src="style/LOGO/LOGO.png" alt="" class="   ">
+            <div class="logo-container">
+                <img src="style/LOGO/LOGO.png" alt="" class="logo">
+                <button class="logo-btn" onclick="onGalleryCLick()"></button>
+            </div>
+
             <nav class="main-nev flex space-between clean-list center">
                 <li>
-                    <a href="#" class="gallery" onclick="onGalleryCLick()">Gallery</a>
+                    <a href="#" class="header-button" onclick="onGalleryCLick()">Gallery</a>
                     <a href="#" class="about" onclick="onPageClick()">About</a>
                 </li>
             </nav>
@@ -27,22 +31,24 @@
         <section class="meme-editor full" style="display: none;">
             <canvas id="canvas" width="0" height="0"></canvas>
             <section class="tools">
-                <input class="search-box flexs" type="text" id="text" oninput="onChangeText()" value="">
+                <input class="text-input" type="text" id="text" oninput="onChangeText()" value="">
                 <div class="tools-line-option flex">
-                    <button onclick="onSwitchLine()"><img
+                    <button class="tools-btn" onclick="onSwitchLine()"><img
                             src="style/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
-                    <button onclick="onAddLine()"><img src="style/ICONS/add.png" alt=""></button>
-                    <button onclick="onRemoveLine()"><img src="style/ICONS/trash.png" alt=""></button>
+                    <button class="tools-btn" onclick="onAddLine()"><img src="style/ICONS/add.png" alt=""></button>
+                    <button class="tools-btn" onclick="onRemoveLine()"><img src="style/ICONS/trash.png" alt=""></button>
                 </div>
                 <div class="tools-text-option flex">
-                    <button onclick="onChangeFontSize(10)"><img src="style/ICONS/increase font - icon.png"
+                    <button class="tools-btn" onclick="onChangeFontSize(10)"><img
+                            src="style/ICONS/increase font - icon.png" alt=""></button>
+                    <button class="tools-btn" onclick="onChangeFontSize(-10)"><img
+                            src="style/ICONS/decrease font - icon.png" alt=""></button>
+                    <button class="tools-btn" onclick="onLeftAlignment()"><img src="style/ICONS/align-to-left.png"
                             alt=""></button>
-                    <button onclick="onChangeFontSize(-10)"><img src="style/ICONS/decrease font - icon.png"
+                    <button class="tools-btn" onclick="onRightAlignment()"><img src="style/ICONS/align-to-right.png"
                             alt=""></button>
-                    <button onclick="onLeftAlignment()"><img src="style/ICONS/align-to-left.png" alt=""></button>
-                    <button onclick="onRightAlignment()"><img src="style/ICONS/align-to-right.png" alt=""></button>
-                    <button onclick="onCenterAlignment()"><img src="style/ICONS/center-text-alignment.png"
-                            alt=""></button>
+                    <button class="tools-btn" onclick="onCenterAlignment()"><img
+                            src="style/ICONS/center-text-alignment.png" alt=""></button>
                 </div>
                 <div class="tools-font-colors flex">
                     <select name="fonts" onchange="onChangeFont(value)">
@@ -51,38 +57,36 @@
                         <option value="anton">anton</option>
                         <option value="roboto   ">roboto</option>
                     </select>
-                    <button class="text-color" onclick="onClickColor()">
-                        <input type="color" id="color" value="#000000" oninput="onChangeColor()" /><img
-                            src="style/ICONS/paint-board-and-brush.png" alt=""><br />
+                    <button class="text-color-btn">
+                        <img src="style/ICONS/paint-board-and-brush.png" alt="" />
+                        <input type="color" id="color" value="#000000" oninput="onChangeColor()" />
                     </button>
-                    <button class="stroke-color" onclick="onClickStroke()">
-                        <input type="color" id="stroke-Color" value="#000000" oninput="onStrokeColor()" /><img
-                            src="style/ICONS/text stroke.png" alt=""><br />
+                    <button class="stroke-color-btn">
+                        <input type="color" id="stroke-Color" value="#000000" oninput="onStrokeColor()" />
+                        <img src="style/ICONS/text stroke.png" alt="" />
                     </button>
                 </div>
                 <div class="tools-share flex">
-                    <button onclick="onDownload()">Download</button>
+                    <button class="share-btn" onclick="onDownload()">Download</button>
                 </div>
 
             </section>
         </section>
-        <main class="gallery-container full">
-            <main class="gallery full ">
-                <section class="search-box flex space-between clean-list">
-                    <input class="filter-search" type="search" name="search" id="">
-                    <section>
-                        <button class="filter-btn">funny</button>
-                        <button class="filter-btn">comics</button>
-                        <button class="filter-btn">dogs</button>
-                        <button class="filter-btn">drinks</button>
-                        <button class="filter-btn">books</button>
-                        <button class="filter-btn">more...</button>
-                    </section>
-                </section>
-                <section class="gallery-container ">
-                </section>
-            </main>
+        <section class="search-box clean-list">
+            <input class="filter-search" type="search" value="Enter search keyword" name="search" id="">
+            <section class="search-tags">
+                <button class="filter-btn">funny</button>
+                <button class="filter-btn">comics</button>
+                <button class="filter-btn">dogs</button>
+                <button class="filter-btn">drinks</button>
+                <button class="filter-btn">books</button>
+                <button class="filter-btn">more...</button>
+            </section>
+        </section>
+        <main class="gallery-continer main-layout  full">
         </main>
+        <section class="gallery">
+        </section>
         <footer class="footer full">
             <img src="style/LOGO/LOGO.png" alt="" class="footer-logo">
             <div class="rights">all rights reserved 2019</div>
@@ -90,12 +94,11 @@
         <dialog class="action-dialog">
             <pre>Please add line first!</pre>
         </dialog>
-    </main>
-    <script src="./js/mains.js"></script>
-    <script src="./js/services/gallery.service.js"></script>
-    <script src="./js/controller/gallery.controller.js"></script>
-    <script src="./js/controller/meme.controller.js"></script>
-    <script src="./js/services/meme.service.js"></script>
+        <script src="./js/mains.js"></script>
+        <script src="./js/services/gallery.service.js"></script>
+        <script src="./js/controller/gallery.controller.js"></script>
+        <script src="./js/controller/meme.controller.js"></script>
+        <script src="./js/services/meme.service.js"></script>
 
 </body>
 
