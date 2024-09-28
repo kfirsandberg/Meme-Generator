@@ -29,3 +29,10 @@
 .main-layout.flow-column {
     grid-auto-flow: column;
 }
+h2{
+    font-family: montserrat;
+}
+.content-container{
+    margin: 10px;
+    padding-bottom: 50px;
+}

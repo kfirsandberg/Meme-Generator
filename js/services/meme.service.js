@@ -37,17 +37,17 @@ function setLineFont(font) {
 function setAlignment(alignment) {
     const line = getCrnLine()
     if (!line) return
+    const canvasWidth = gCtx.canvas.width
+    const textWidth = gCtx.measureText(line.txt).width
+    line.alignment = alignment
     if (alignment === 'center') {
-        line.alignment = alignment
-        setBoxPos()
-    }
-    else if (alignment === 'right') {
-        line.boxPos.x -= 40
-        line.alignment = alignment
+        line.posX = canvasWidth / 2  
+    } else if (alignment === 'right') {
+        line.posX = canvasWidth - textWidth / 2 
     } else if (alignment === 'left') {
-        line.boxPos.x += 40
-        line.alignment = alignment
+        line.posX = textWidth / 2 
     }
+    setBoxPos()
 }
 
 function setLineColor(color) {
@@ -142,14 +142,33 @@ function isBox(pos) {
 
 function setBoxPos() {
     const line = getCrnLine()
+    if (!line) return
+
     const textWidth = gCtx.measureText(line.txt).width
     const boxPadding = 10
-    line.boxPos = {
-        x: line.posX - (textWidth / 2) - boxPadding,
-        y: line.posY - boxPadding,
-        width: textWidth + boxPadding * 2,
-        height: line.size + boxPadding * 2
-    };
+
+    if (line.alignment === 'center') {
+        line.boxPos = {
+            x: line.posX - textWidth / 2 - boxPadding,  
+            y: line.posY - boxPadding,
+            width: textWidth + boxPadding * 2,
+            height: line.size + boxPadding * 2
+        }
+    } else if (line.alignment === 'right') {
+        line.boxPos = {
+            x: line.posX - textWidth - boxPadding, 
+            y: line.posY - boxPadding,
+            width: textWidth + boxPadding * 2,
+            height: line.size + boxPadding * 2
+        }
+    } else if (line.alignment === 'left') {
+        line.boxPos = {
+            x: line.posX - boxPadding, 
+            y: line.posY - boxPadding,
+            width: textWidth + boxPadding * 2,
+            height: line.size + boxPadding * 2
+        }
+    }
 }
 
 function getBoxPos() {

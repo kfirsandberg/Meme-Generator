@@ -9,6 +9,9 @@ function onClickImg(imgId) {
     searchBox.style.display = 'none'
     const editor = document.querySelector('.meme-editor')
     editor.classList.add('show')
+    const content = document.querySelector('.content-container')
+    content.style.display = 'none'
+
     setImgId(imgId)
     renderMeme()
 }
@@ -92,7 +95,7 @@ function renderMeme() {
     const meme = getMeme()
     if (gUploadedImg) {
         gCtx.canvas.width = 500
-        gCtx.canvas.height =500 
+        gCtx.canvas.height = 500
         gCtx.drawImage(gUploadedImg, 0, 0, 500, 500)
         renderLines()
 
@@ -111,7 +114,7 @@ function renderMeme() {
 }
 
 function renderLines() {
-    const lines = getLines()    
+    const lines = getLines()
     lines.forEach((line) => {
         gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color

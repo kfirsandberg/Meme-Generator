@@ -22,3 +22,25 @@
     src: url(./fonts/Montserrat/Montserrat-VariableFont_wght.ttf)format(truetype)
 }
 
+
+@font-face {
+    font-family: fa;
+    src: url(./fonts/fa-brands-400.ttf)format(truetype)
+}
+
+.fa::before {
+    font-family: fa;
+}
+
+.fa.facebook::before {
+    content: '\f09a';
+}
+.fa.linkedin::before {
+    content: '\f08c';
+    background-color: black;
+}
+.fa.github::before {
+    content: '\f092';
+    background-color: black;
+
+}

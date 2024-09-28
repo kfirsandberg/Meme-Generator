@@ -4,7 +4,6 @@ let memeImg
 let gLastPos
 let gIsBox
 let gUploadedImg
-
 const canvas = document.getElementById('canvas')
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
@@ -66,20 +65,22 @@ function onGalleryCLick() {
     clearLines()
     document.querySelector('.text-input').value = ''
     const memeBtn = document.querySelector('.Meme-btn')
-    memeBtn.style.borderBottom = 'none';
-    memeBtn.style.color = 'white';
+    memeBtn.style.borderBottom = 'none'
+    memeBtn.style.color = 'white'
     const galleryBtn = document.querySelector('.header-button')
-    galleryBtn.style.borderBottom = '6px solid black';
-    galleryBtn.style.color = 'black';
+    galleryBtn.style.borderBottom = '6px solid black'
+    galleryBtn.style.color = 'black'
     const searchbox = document.querySelector('.search-box')
     searchbox.style.display = 'flex'
+        const content = document.querySelector('.content-container')
+    content.style.display = 'flex'
 
 }
 
 function showModal() {
     const elModal = document.querySelector('.action-dialog')
     elModal.showModal()
-    setTimeout(() => { elModal.close() }, 1000);
+    setTimeout(() => { elModal.close() }, 1000)
 }
 
 function onShareFacebook(url) {
@@ -108,6 +109,7 @@ function onImgInput(ev) {
 }
 
 function loadImageFromInput(ev, onImageReady) {
+    
     document.querySelector('.share-container').innerHTML = ''
     const reader = new FileReader()
     reader.onload = (event) => {
@@ -156,11 +158,11 @@ function onMemesCLick() {
     searchBox.style.display = 'flex'
     let elGallery = document.querySelector('.gallery')
     const galleryBtn = document.querySelector('.header-button')
-    galleryBtn.style.borderBottom = 'none';
-    galleryBtn.style.color = 'white';
+    galleryBtn.style.borderBottom = 'none'
+    galleryBtn.style.color = 'white'
     const memeBtn = document.querySelector('.Meme-btn')
-    memeBtn.style.color = 'black';
-    memeBtn.style.borderBottom = '6px solid black';
+    memeBtn.style.color = 'black'
+    memeBtn.style.borderBottom = '6px solid black'
     let strHtmls = savedMeme.map((meme) => {
         return `<img src="${meme.url}" alt=""onclick="onClickSavedMeme(${meme.id})">`
     })
