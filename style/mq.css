@@ -16,19 +16,37 @@
 
      .main-header {
          width: 100%;
+         justify-content: center;
+
      }
 
+     .categories {
+         margin: 10px;
+     }
+/* 
      .main-nev {
-        position: fixed;
-        background-color: #000;
-        top: 40px;
-        left: 0;
-        width: 100%;
-        display:grid ;
-        grid-template-rows: 0fr;
-        overflow: hidden;
-        transition: grid-template-rows 1s;
-        align-items: end;         
+         justify-content: center;
+         position: fixed;
+         background-color: #000;
+         left: 0;
+         width: 100%;
+         top: 60px;
+         display: none;
+         grid-template-rows: 0fr;
+         overflow: hidden;
+         transition: grid-template-rows 1s;
+         align-items: end;
+         margin: 0;
+     } */
+
+     li {
+         margin: 0;
+         display: flex;
+         flex-direction: column;
+     }
+
+     .header-button {
+         color: white;
      }
 
      .search-box input {
@@ -40,16 +58,35 @@
          display: block;
          width: -webkit-fill-available;
      }
-     .meme-editor{
-        display: none;
+
+     .meme-editor {
+         display: none;
      }
-     .meme-editor.show{
-        padding: 0;
-        display: block !important;
+
+     .meme-editor.show {
+         padding: 0;
+         display: block !important;
      }
-     .tools{
-        display: contents;
+
+     .tools {
+         display: contents;
      }
+
+     .search-box {
+         height: auto;
+     }
+
+     .search-tags {
+         margin: 10px;
+     }
+
+     .tag-container {
+         margin: 10px;
+     }
+ }
+
+ .btn-toggle-menu {
+     display: flex;
  }
 
  /* small */
@@ -57,6 +94,7 @@
      .gallery {
          grid-template-columns: repeat(2, 1fr);
      }
+
 
      .search-box {
          height: 70px;
@@ -79,7 +117,6 @@
      .filter-search {
          height: 50%;
      }
-
 
 
  }
@@ -121,6 +158,10 @@
          height: 0%;
      }
 
+     .btn-toggle-menu {
+         display: none !important;
+     }
+
 
 
 
@@ -158,5 +199,8 @@
          justify-content: end;
      }
 
+     .btn-toggle-menu {
+         display: none !important;
+     }
 
  }

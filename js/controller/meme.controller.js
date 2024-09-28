@@ -12,6 +12,17 @@ function onClickImg(imgId) {
     setImgId(imgId)
     renderMeme()
 }
+function onClickSavedMeme(id) {
+    const savedGallery = getSavedMemes()
+    setSavedMeme(savedGallery[id])
+    const gallery = document.querySelector('.gallery-container')
+    gallery.style.display = 'none'
+    const searchBox = document.querySelector('.search-box')
+    searchBox.style.display = 'none'
+    const editor = document.querySelector('.meme-editor')
+    editor.classList.add('show')
+    renderMeme()
+}
 
 function onChangeText() {
     const txt = document.getElementById('text').value
@@ -79,20 +90,28 @@ function onMoveMeme(pos) {
 
 function renderMeme() {
     const meme = getMeme()
-    const memeImg = getImg(meme.selectedImgId)
-    let elImg = new Image()
-    elImg.src = memeImg.url
-    const line = getCrnLine()
-    elImg.onload = () => {
-        gCtx.canvas.width = elImg.naturalWidth
-        gCtx.canvas.height = elImg.naturalHeight
-        gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
+    if (gUploadedImg) {
+        gCtx.canvas.width = 500
+        gCtx.canvas.height =500 
+        gCtx.drawImage(gUploadedImg, 0, 0, 500, 500)
         renderLines()
+
+    } else {
+        const memeImg = getImg(meme.selectedImgId)
+        let elImg = new Image()
+        elImg.src = memeImg.url
+        elImg.onload = () => {
+            gCtx.canvas.width = elImg.naturalWidth
+            gCtx.canvas.height = elImg.naturalHeight
+            gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
+            renderLines()
+        }
+
     }
 }
 
 function renderLines() {
-    const lines = getLines()
+    const lines = getLines()    
     lines.forEach((line) => {
         gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color

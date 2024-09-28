@@ -12,7 +12,10 @@ function getMeme() {
 function setImgId(id) {
     gMeme.selectedImgId = id
 }
-
+function setSavedMeme(meme){  
+    gMeme = meme.gMeme
+    gCurrLineIdx = gMeme.lines.length -1
+}
 function setLineText(txt) {
     const line = getCrnLine()
     if (!line) {
@@ -27,14 +30,13 @@ function setLineText(txt) {
 function setLineFont(font) {
     const line = getCrnLine()
     if (!line) return
-
     line.font = font
+    setBoxPos()
 }
 
 function setAlignment(alignment) {
     const line = getCrnLine()
     if (!line) return
-    const textWidth = gCtx.measureText(line.txt)
     if (alignment === 'center') {
         line.alignment = alignment
         setBoxPos()
@@ -64,6 +66,7 @@ function setLineFontSize(size) {
     const line = getCrnLine()
     if (!line) return
     line.size += size
+    setBoxPos()
 }
 
 function addLine() {
@@ -125,6 +128,7 @@ function getLines() {
 
 function isBox(pos) {
     const line = getCrnLine()
+    if (!line) return
     const { x, y, width, height } = line.boxPos
     if (pos.x >= x && pos.x <= x + width && pos.y >= y && pos.y <= y + height) {
         line.isInBox = true

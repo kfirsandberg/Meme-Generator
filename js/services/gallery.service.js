@@ -1,4 +1,6 @@
 'use strict'
+const MEMES_KEY = 'MEMES'
+let gSavedMemes =[]
 var gKeywordSearchCountMap = { 'funny': 19, 'politics': 26, 'animals': 14, 'celebrities': 10 }
 const gImgs = [
     { id: 1, url: 'img/meme-imgs (square)/1.jpg', keywords: ['politics', 'celebrities', 'people'] },
@@ -20,14 +22,14 @@ const gImgs = [
     { id: 17, url: 'img/meme-imgs (square)/17.jpg', keywords: ['politics', 'people'] },
     { id: 18, url: 'img/meme-imgs (square)/18.jpg', keywords: ['movies', 'kids'] }]
 let gFilterImgs = gImgs
-let savedMemes = []
 function getImgs() {
     return gFilterImgs
 }
 
 function getImg(id) {
-    return gImgs[id - 1]
+     return gImgs[id - 1]
 }
+
 
 function filterImgs(keyWord) {
     gKeywordSearchCountMap[keyWord] += 1
@@ -43,3 +45,61 @@ function getKeyWords() {
     return gKeywordSearchCountMap
 }
 
+function getSavedMemes(){
+    gSavedMemes = loadFromStorage(MEMES_KEY)
+    if (gSavedMemes && gSavedMemes.length !== 0) return gSavedMemes
+    else {
+        gSavedMemes = [
+            {id:0,
+                url: 'img/saved- memes/canvas-image (5).png',
+                gMeme: {
+                    selectedImgId: 13,
+                    selectedLineIdx: 0,
+                    lines: [
+                        {
+                            "txt": "i like falafel!",
+                            "size": 60,
+                            "color": "white",
+                            "stroke": "black",
+                            "font": "impact",
+                            "alignment": "center",
+                            "posY": 30,
+                            "posX": 250,
+                            "isInBox": false,
+                            "boxPos": {}
+                        }
+                    ]
+                }
+            },
+            {id:1,
+                url: 'img/saved- memes/canvas-image (6).png',
+                gMeme: {
+                    selectedImgId: 9,
+                    selectedLineIdx: 0,
+                    lines: [
+                        {
+                            "txt": "i like falafel!",
+                            "size": 60,
+                            "color": "white",
+                            "stroke": "black",
+                            "font": "impact",
+                            "alignment": "center",
+                            "posY": 30,
+                            "posX": 250,
+                            "isInBox": false,
+                            "boxPos": {}
+                        }
+                    ]
+                }
+            }
+        ]
+        
+    }
+    return gSavedMemes  
+}
+
+function addNewMeme(newMeme) {
+    newMeme.id = (gSavedMemes.length)
+    gSavedMemes.push(newMeme)
+    saveToStorage(MEMES_KEY,gSavedMemes)
+}

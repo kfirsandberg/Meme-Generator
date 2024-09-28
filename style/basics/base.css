@@ -5,3 +5,57 @@ body{
     margin: 0;
 }
 
+
+
+
+
+.emoji-drawer {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    width: 100px;
+
+    margin-bottom: 32px;
+    transition: opacity 0.2s;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.emoji {
+    text-align: center;
+    font-size: 24px;
+    padding: 8px;
+}
+
+.emoji:hover {
+    cursor: pointer;
+}
+
+
+
+.emoji-popup {
+    position: absolute; /* Adjust position as needed */
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Make sure it appears above other elements */
+}
+
+.hidden {
+    display: none;
+}
+
+.emoji {
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+    font-size: 24px; /* Adjust size as needed */
+}
+
+.emoji:hover {
+    background-color: #f0f0f0; /* Optional hover effect */
+}

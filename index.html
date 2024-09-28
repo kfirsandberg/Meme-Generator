@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" type="text/css" href="./style/main.css" />
     <link rel="preload" type="font/TTF" as="font" href="style/fonts/comic-sans-ms-font-family/COMIC.TTF"
         crossorigin="anonymous">
     <link rel="preload" as="font" href="style/fonts/Anton/Anton-Regular.ttf" crossorigin="anonymous">
@@ -21,7 +21,7 @@
                 <button class="logo-btn" onclick="onGalleryCLick()"></button>
             </div>
 
-            <nav class="main-nev flex space-between ">
+            <nav class="main-nev flex  ">
                 <ul class="flex main-nav-list clean-list">
                     <li>
                         <a href="#" class="btn header-button" onclick="onGalleryCLick()">Gallery</a>
@@ -30,9 +30,17 @@
                     </li>
                 </ul>
             </nav>
+            <nav class="btn-toggle-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </nav>
         </header>
         <section class="meme-editor full" style="display: none;">
+
+
             <canvas id="canvas" width="0" height="0"></canvas>
+
             <section class="tools">
                 <input class="text-input" type="text" id="text" oninput="onChangeText()" value="">
                 <div class="tools-line-option flex">
@@ -40,11 +48,23 @@
                             src="style/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
                     <button class="tools-btn" onclick="onAddLine()"><img src="style/ICONS/add.png" alt=""></button>
                     <button class="tools-btn" onclick="onRemoveLine()"><img src="style/ICONS/trash.png" alt=""></button>
-                    <nav class="btn-toggle-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </nav>
+                    <button onclick="toggleEmojiDrawer()" class="tools-btn"><img src="style/ICONS/emoji.png"
+                            alt=""></button>
+
+                    <div id="emojiPopup" class="emoji-popup hidden">
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😀</div>
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😀</div>
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😀</div>
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😀</div>
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😀</div>
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😀</div>
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😀</div>
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😀</div>
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😃</div>
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😄</div>
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😁</div>
+                        <div class="emoji" onclick="addEmoji(this.innerHTML)">😆</div>
+                    </div>
                 </div>
                 <div class="tools-text-option flex">
                     <button class="tools-btn" onclick="onChangeFontSize(10)"><img
@@ -77,31 +97,36 @@
                 <div class="tools-share flex">
                     <button class="share-btn" onclick="onDownload()">Download</button>
                     <button class="share-btn" onclick="onShare()">Share</button>
-                    <button class="share-btn" onclick="onDownload()">Save to memes</button>
+                    <button class="share-btn" onclick="onSaveMeme()">Save to memes</button>
                 </div>
                 <div class="share-container flex "></div>
             </section>
         </section>
         <section class="search-box clean-list">
-            <form action="" method="get">
+            <form action="" method="get" id="memeForm">
                 <label for="browser"></label>
-                <input list="browsers" name="browser" id="browser">
+                <input list="meme categories" name="meme-categories" class="categories" id="meme-categories">
                 <datalist id="meme categories">
                     <option value="funny">
-                    <option value="comics">
-                    <option value="dogs">
-                    <option value="drinks">
-                    <option value="books">
+                    <option value="politics">
+                    <option value="animals">
+                    <option value="celebrities">
+                    <option value="all">
                 </datalist>
             </form>
             <section class="search-tags">
-                <button class="flexible-btn" onclick="onFlexible()">i'm flexible</button>
-                <button class="filter-btn all" onclick="onFilterImgs('all')">all</button>
-                <button class="filter-btn funny" onclick="onFilterImgs('funny')">funny</button>
-                <button class="filter-btn politics" onclick="onFilterImgs('politics')">politics</button>
-                <button class="filter-btn animals" onclick="onFilterImgs('animals')">animals</button>
-                <button class="filter-btn celebrities" onclick="onFilterImgs('celebrities')">celebrities</button>
-                <button class="filter-btn more">more...</button>
+                <div class="tag-container">
+                    <button class="flexible-btn" onclick="onFlexible()">i'm flexible</button>
+                    <button class="filter-btn all" onclick="onFilterImgs('all')">all</button>
+                    <button class="filter-btn funny" onclick="onFilterImgs('funny')">funny</button>
+                    <button class="filter-btn politics" onclick="onFilterImgs('politics')">politics</button>
+                </div>
+                <div class="tag-container">
+                    <button class="filter-btn animals" onclick="onFilterImgs('animals')">animals</button>
+                    <button class="filter-btn celebrities" onclick="onFilterImgs('celebrities')">celebrities</button>
+                    <button class="filter-btn more">more...</button>
+
+                </div>
             </section>
         </section>
         <main class="gallery-container main-layout full">
