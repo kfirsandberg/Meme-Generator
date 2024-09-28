@@ -33,15 +33,12 @@ function setLineFont(font) {
 
 function setAlignment(alignment) {
     const line = getCrnLine()
-    console.log(line.boxPos.x)
-
     if (!line) return
     const textWidth = gCtx.measureText(line.txt)
-    console.log(textWidth)
-    if (alignment === 'center'){
+    if (alignment === 'center') {
         line.alignment = alignment
         setBoxPos()
-    } 
+    }
     else if (alignment === 'right') {
         line.boxPos.x -= 40
         line.alignment = alignment
@@ -156,9 +153,9 @@ function getBoxPos() {
     return line.boxPos
 }
 
-function _createLine() {
+function _createLine(txt='') {
     return {
-        txt: '',
+        txt,
         size: 60,
         color: 'white',
         stroke: 'black',
@@ -168,5 +165,18 @@ function _createLine() {
         posX: gCtx.canvas.width / 2,
         isInBox: true,
         boxPos: {}
-    }
+    }   
+
+}
+
+function onFlexBtn(){
+    var newLine = _createLine('i like falafel!')
+    newLine.isInBox= false  
+    newLine.posX = 250
+    gMeme.lines.push(newLine)
+    gCurrLineIdx =0
+}
+
+function clearLines(){
+    gMeme.lines =[]
 }

@@ -3,12 +3,12 @@ let boxY
 let boxWidth
 let boxHeight
 function onClickImg(imgId) {
-    const gallery = document.querySelector('.gallery')
+    const gallery = document.querySelector('.gallery-container')
     gallery.style.display = 'none'
     const searchBox = document.querySelector('.search-box')
     searchBox.style.display = 'none'
     const editor = document.querySelector('.meme-editor')
-    editor.style.display = 'grid'
+    editor.classList.add('show')
     setImgId(imgId)
     renderMeme()
 }
@@ -102,7 +102,6 @@ function renderLines() {
         gCtx.lineWidth = 5
         if (line.isInBox) {
             const boxPox = getBoxPos()
-            console.log(boxPox)
             gCtx.strokeRect(boxPox.x, boxPox.y, boxPox.width, boxPox.height)
         }
         else {
@@ -121,3 +120,4 @@ function onDownload() {
     link.download = 'canvas-image.png'
     link.click()
 }
+
