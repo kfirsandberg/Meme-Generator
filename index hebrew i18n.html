@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html dir="rtl" lang="he">
+
 
 <head>
     <meta charset="UTF-8" />
@@ -23,9 +24,9 @@
             <nav class="main-nev flex  ">
                 <ul class="flex main-nav-list clean-list">
                     <li>
-                        <a href="#" class="btn header-button" onclick="onGalleryCLick()">Gallery</a>
-                        <a href="#" class="btn Meme-btn" onclick="onMemesCLick()">Memes</a>
-                        <a href="#" class="btn about" onclick="onPageClick()">About</a>
+                        <a href="#" class="btn header-button" onclick="onGalleryCLick()">גלריה</a>
+                        <a href="#" class="btn Meme-btn" onclick="onMemesCLick()">מימס</a>
+                        <a href="#" class="btn about" onclick="onPageClick()">אדות</a>
                     </li>
                 </ul>
             </nav>
@@ -97,9 +98,9 @@
                     </button>
                 </div>
                 <div class="tools-share flex">
-                    <button class="share-btn" onclick="onDownload()">Download</button>
-                    <button class="share-btn" onclick="onShare()">Share</button>
-                    <button class="share-btn" onclick="onSaveMeme()">Save to memes</button>
+                    <button class="share-btn" onclick="onDownload()">הורדה</button>
+                    <button class="share-btn" onclick="onShare()">שיתוף</button>
+                    <button class="share-btn" onclick="onSaveMeme()">שמור</button>
                 </div>
                 <div class="share-container flex "></div>
             </section>
@@ -118,15 +119,15 @@
             </form>
             <section class="search-tags">
                 <div class="tag-container">
-                    <button class="flexible-btn" onclick="onFlexible()">i'm flexible</button>
-                    <button class="filter-btn all" onclick="onFilterImgs('all')">all</button>
-                    <button class="filter-btn funny" onclick="onFilterImgs('funny')">funny</button>
-                    <button class="filter-btn politics" onclick="onFilterImgs('politics')">politics</button>
+                    <button class="flexible-btn" onclick="onFlexible()">מימ רנדולמי</button>
+                    <button class="filter-btn all" onclick="onFilterImgs('all')">הכל</button>
+                    <button class="filter-btn funny" onclick="onFilterImgs('funny')">מצחיק</button>
+                    <button class="filter-btn politics" onclick="onFilterImgs('politics')">פוליטי</button>
                 </div>
                 <div class="tag-container">
-                    <button class="filter-btn animals" onclick="onFilterImgs('animals')">animals</button>
-                    <button class="filter-btn celebrities" onclick="onFilterImgs('celebrities')">celebrities</button>
-                    <button class="filter-btn more">more...</button>
+                    <button class="filter-btn animals" onclick="onFilterImgs('animals')">חיות</button>
+                    <button class="filter-btn celebrities" onclick="onFilterImgs('celebrities')">מפורסמים</button>
+                    <button class="filter-btn more">עוד...</button>
 
                 </div>
             </section>
@@ -157,10 +158,10 @@
         </section>
         <footer class="footer full">
             <img src="style/LOGO/LOGO.png" alt="" class="footer-logo">
-            <div class="rights">all rights reserved 2019</div>
+            <div class="rights">כל הזכויות שמורות 2019</div>
         </footer>
         <dialog class="action-dialog">
-            <pre>Please add line first!</pre>
+            <pre></pre>
         </dialog>
         <script src="./js/mains.js"></script>
         <script src="./js/services/gallery.service.js"></script>
