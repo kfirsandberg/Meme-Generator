@@ -11,6 +11,8 @@ function onClickImg(imgId) {
     editor.classList.add('show')
     const content = document.querySelector('.content-container')
     content.style.display = 'none'
+    const imgContainer = document.querySelector('.img-container')
+    imgContainer.style.display = 'none'
 
     setImgId(imgId)
     renderMeme()

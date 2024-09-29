@@ -45,6 +45,9 @@
          flex-direction: column;
      }
 
+     .links{
+        flex-direction: row;
+     }
      .header-button {
          color: white;
      }

@@ -14,9 +14,10 @@
 }
 
 @font-face {
-    font-family: roboto; 
+    font-family: roboto;
     src: url(./fonts/Roboto/Roboto-Bold.ttf)format(truetype)
 }
+
 @font-face {
     font-family: montserrat;
     src: url(./fonts/Montserrat/Montserrat-VariableFont_wght.ttf)format(truetype)
@@ -35,12 +36,15 @@
 .fa.facebook::before {
     content: '\f09a';
 }
+
 .fa.linkedin::before {
     content: '\f08c';
-    background-color: black;
 }
+
 .fa.github::before {
     content: '\f092';
+}
+.fa.facebook , .fa.github, .fa.linkedin{
     background-color: black;
 
 }
