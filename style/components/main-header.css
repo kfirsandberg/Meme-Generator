@@ -55,17 +55,19 @@ a{
 .btn-toggle-menu{
     display: none;
     cursor: pointer;
-    padding: 0.9em 1.625em;
     font-family: inherit;
     color: black;
     background-color: transparent;
     padding-right: 10%;
+    margin: 10px;
+    padding-top: 6%;
 }
 
 .btn-toggle-menu span{
-    height: 5px;
+    padding: 1px;
+    height: 4px;
     width: 2em;
-    margin: 4px;
+    margin: 5px;
     border-radius: 1em;
     background-color: white;
     position: absolute;
@@ -73,7 +75,7 @@ a{
 }
 
 .btn-toggle-menu :nth-child(1){
-    top :20px;
+    top :18px;
 }
 .btn-toggle-menu  :nth-child(3){
     top :26px;  

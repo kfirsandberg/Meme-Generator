@@ -6,16 +6,6 @@ body {
     margin: 0;
 }
 
-.emoji-drawer {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    width: 100px;
-
-    margin-bottom: 32px;
-    transition: opacity 0.2s;
-}
 
 .hidden {
     opacity: 0;
@@ -25,10 +15,23 @@ body {
     text-align: center;
     font-size: 24px;
     padding: 8px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+    font-size: 24px;
+}
+.emoji-drawer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100px;
+    margin-bottom: 32px;
+    transition: opacity 0.2s;
 }
 
 .emoji:hover {
     cursor: pointer;
+    background-color: #f0f0f0;
+
 }
 
 .emoji-popup {
@@ -44,20 +47,10 @@ body {
     display: none;
 }
 
-.emoji {
-    cursor: pointer;
-    display: inline-block;
-    margin: 5px;
-    font-size: 24px;
-}
-
-.emoji:hover {
-    background-color: #f0f0f0;
-}
-
 .links {
     padding: 20px;
 }
+
 a.fa:hover {
     font-size: 25px;
     transition: font-size 0.3s ease;
